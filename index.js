@@ -27,11 +27,10 @@ if (pinanswer.pincode === mypin) {
         if (amountanswer.amount > mybalance) {
             console.log("you exeed your account balance limit........");
         }
-        ;
+        else if (operatoranswer.operation === "check balance") {
+            console.log(`your current account balance is ${mybalance}`);
+        }
         console.log(`your remaining account balance is `, mybalance - amountanswer.amount);
-    }
-    else if (operatoranswer.operation === "check balance") {
-        console.log(`your current account balance is ${mybalance}`);
     }
 }
 else {
