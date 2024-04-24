@@ -25,16 +25,15 @@ if (pinanswer.pincode === mypin) {
         type: "number",
       },
     ]);
-    mybalance -= amountanswer.amount;
-    if (amountanswer.amount > mybalance) {
-      console.log("you exeed your account balance limit........");
-     }else if (operatoranswer.operation === "check balance") {
-      console.log(`your current account balance is ${mybalance}`);
-     }
-      console.log(`your remaining account balance is `, mybalance-amountanswer.amount);
-    }
+   
+    
+   if(amountanswer.amount>mybalance){
+    console.log("you exeed your account balance limit");}
+    if(amountanswer.amount<= mybalance){
+    console.log(`your remaining account balance is `, mybalance-amountanswer.amount)};
 
-
-} else {
-  console.log("invalid pin pin code");
-}
+   }else if(operatoranswer.operation==="check balance"){
+    console.log(`your current account balance is `,mybalance);
+   }
+  }
+else{console.log("incorrect pin code")};
