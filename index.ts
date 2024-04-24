@@ -25,11 +25,10 @@ if (answerpin.pincode === mypin) {
         type: "number",
       },
     ]);
-    if(answeramount.amount>mybalance){console.log("you exeed your account balance limit")}
-    console.log(
-      `your remaining account balance is `,
-      (mybalance -= answeramount.amount)
-    );
+    mybalance-=answeramount.amount;
+    if(answeramount>mybalance){console.log("you exeed your account balance limit........")};
+    console.log(`your remaining account balance is `,mybalance );
+
   }else if(answeroperator.operation==="check balance"){
     console.log(`your current account balance is `,mybalance)
   }
