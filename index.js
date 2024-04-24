@@ -24,7 +24,7 @@ if (answerpin.pincode === mypin) {
             },
         ]);
         mybalance -= answeramount.amount;
-        if (answeramount > mybalance) {
+        if (answeramount.amount > mybalance) {
             console.log("you exeed your account balance limit........");
         }
         ;
