@@ -2,12 +2,12 @@
 import inquirer from "inquirer";
 let mybalance = 10000;
 let mypin = 1234;
-let answerpin = await inquirer.prompt([
+let pinanswer = await inquirer.prompt([
     { name: "pincode", message: "enter your four digit pin...", type: "number" },
 ]);
-if (answerpin.pincode === mypin) {
+if (pinanswer.pincode === mypin) {
     console.log("correct pin code !");
-    let answeroperator = await inquirer.prompt([
+    let operatoranswer = await inquirer.prompt([
         {
             name: "operation",
             message: "select one option....",
@@ -15,23 +15,23 @@ if (answerpin.pincode === mypin) {
             choices: ["withdraw", "check balance"],
         },
     ]);
-    if (answeroperator.operation === "withdraw") {
-        let answeramount = await inquirer.prompt([
+    if (operatoranswer.operation === "withdraw") {
+        let amountanswer = await inquirer.prompt([
             {
                 name: "amount",
                 message: "enter your amount....",
                 type: "number",
             },
         ]);
-        mybalance -= answeramount.amount;
-        if (answeramount.amount > mybalance) {
+        mybalance -= amountanswer.amount;
+        if (amountanswer.amount > mybalance) {
             console.log("you exeed your account balance limit........");
         }
         ;
-        console.log(`your remaining account balance is `, mybalance);
+        console.log(`your remaining account balance is `, mybalance - amountanswer.amount);
     }
-    else if (answeroperator.operation === "check balance") {
-        console.log(`your current account balance is `, mybalance);
+    else if (operatoranswer.operation === "check balance") {
+        console.log(`your current account balance is ${mybalance}`);
     }
 }
 else {
